@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/shop">
+	<xsl:text>&#xa;</xsl:text>
+	<xsl:for-each select="part1/book">
+		<xsl:sort select="title"/>
+			<xsl:value-of select="title"/>
+			<xsl:text>&#160;</xsl:text>
+			<xsl:value-of select="author"/>
+			<xsl:text>&#xa;</xsl:text>
+	</xsl:for-each>
+	<xsl:for-each select="part2/book">
+		<xsl:if test="price &gt; 10">
+			<xsl:value-of select="country"/>
+			<xsl:text>&#160;</xsl:text>
+			<xsl:value-of select="price"/>
+			<xsl:text>&#xa;</xsl:text>
+		</xsl:if>
+	</xsl:for-each>
+</xsl:template>
+</xsl:stylesheet>
